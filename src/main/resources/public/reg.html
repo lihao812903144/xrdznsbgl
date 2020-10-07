@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta content="网站关键词" name="Keywords">
+    <meta content="网站介绍" name="Description">
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/iconfont.css" rel="stylesheet">
+    <link href="./css/reg.css" rel="stylesheet">
+</head>
+<!--/************************************************************
+ *																*
+ * 						      代码库							*
+ *                        www.dmaku.com							*
+ *       		  努力创建完善、持续更新插件以及模板			*
+ * 																*
+**************************************************************-->
+<body>
+    <div id="ajax-hook"></div>
+    <div class="wrap">
+        <div class="wpn">
+            <div class="form-data pos">
+                <a href=""><img class="head-logo" src="./img/logo.png"></a>
+                <!--<p class="tel-warn hide"><i class="icon-warn"></i></p>-->
+                <form>
+                    <p class="p-input pos">
+                        <label for="tel">手机号</label>
+                        <input autocomplete="off" id="tel" type="number">
+                        <span class="tel-warn tel-err hide"><em></em><i class="icon-warn"></i></span>
+                    </p>
+                    <p class="p-input pos" id="sendcode">
+                        <label for="veri-code">输入验证码</label>
+                        <input id="veri-code" type="number">
+                        <a class="send" href="javascript:;">发送验证码</a>
+                        <span class="time hide"><em>120</em>s</span>
+                        <span class="error hide"><em></em><i class="icon-warn" style="margin-left: 5px"></i></span>
+                    </p>
+                    <p class="p-input pos hide" id="pwd">
+                        <label for="passport">输入密码</label>
+                        <input style="display: none" type="password"/>
+                        <input id="passport" type="password">
+                        <span class="tel-warn pwd-err hide"><em></em><i class="icon-warn" style="margin-left: 5px"></i></span>
+                    </p>
+                    <p class="p-input pos hide" id="confirmpwd">
+                        <label for="passport2">确认密码</label>
+                        <input style="position:absolute;top:-998px" type="password"/>
+                        <input id="passport2" type="password">
+                        <span class="tel-warn confirmpwd-err hide"><em></em><i class="icon-warn" style="margin-left: 5px"></i></span>
+                    </p>
+                </form>
+                <div class="reg_checkboxline pos">
+                    <span class="z"><i class="icon-ok-sign boxcol" nullmsg="请同意!"></i></span>
+                    <input name="agree" type="hidden" value="1">
+                    <div class="Validform_checktip"></div>
+                    <p>我已阅读并接受 <a href="#" target="_brack">《XXXX协议说明》</a></p>
+                </div>
+                <button class="lang-btn">注册</button>
+                <div class="bottom-info">已有账号，<a href="./login.html">马上登录</a></div>
+                <div class="third-party">
+                    <a class="log-qq icon-qq-round" href="#"></a>
+                    <a class="log-qq icon-weixin" href="#"></a>
+                    <a class="log-qq icon-sina1" href="#"></a>
+                </div>
+                <p class="right">Powered by © 2018</p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/agree.js"></script>
+    <script src="./js/reg.js"></script>
+</body>
+</html>

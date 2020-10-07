@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>智能设备管理系统-登录</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta content="网站关键词" name="Keywords">
+    <meta content="网站介绍" name="Description">
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/iconfont.css" rel="stylesheet">
+    <link href="./css/reg.css" rel="stylesheet">
+</head>
+<body>
+<div id="ajax-hook"></div>
+<div class="wrap">
+    <div class="wpn">
+        <div class="form-data pos">
+            <a href=""><img class="head-logo" src="./img/logo.png"></a>
+            <div class="change-login">
+                <p class="account_number on">账号登录</p>
+                <p class="message">短信登录</p>
+            </div>
+            <div class="form1">
+                <p class="p-input pos">
+                    <label for="num">手机号/用户名/UID/邮箱</label>
+                    <input id="username" type="text">
+                    <span class="tel-warn num-err hide"><em>账号或密码错误，请重新输入</em><i class="icon-warn"></i></span>
+                </p>
+                <p class="p-input pos">
+                    <label for="pass">请输入密码</label>
+                    <input style="display:none" type="password"/>
+                    <input autocomplete="new-password" id="password" type="password">
+                    <span class="tel-warn pass-err hide"><em> 账号或密码错误，请重新输入</em><i class="icon-warn"></i></span>
+                </p>
+            </div>
+            <div class="form2 hide">
+                <p class="p-input pos">
+                    <label for="num2">手机号</label>
+                    <input id="num2" type="number">
+                    <span class="tel-warn num2-err hide"><em>账号或密码错误</em><i class="icon-warn"></i></span>
+                </p>
+                <p class="p-input pos">
+                    <label for="veri-code">输入验证码</label>
+                    <input id="veri-code" type="number">
+                    <a class="send" href="javascript:;">发送验证码</a>
+                    <span class="time hide"><em>120</em>s</span>
+                    <span class="tel-warn error hide">验证码错误</span>
+                </p>
+            </div>
+            <div class="r-forget cl">
+                <a class="z" href="./reg.html">账号注册</a>
+                <a class="y" href="./getpass.html">忘记密码</a>
+            </div>
+            <button class="lang-btn off log-btn" onclick="login()">登录</button>
+            <div class="third-party">
+                <a class="log-qq icon-qq-round" href="#"></a>
+                <a class="log-qq icon-weixin" href="#"></a>
+                <a class="log-qq icon-sina1" href="#"></a>
+            </div>
+            <p class="right">Powered by © 2018</p>
+        </div>
+    </div>
+</div>
+<script src="./js/jquery.js"></script>
+<script src="./js/agree.js"></script>
+<script src="./js/login.js"></script>
+<script src="./js/cookie.js"></script>
+<!--//获取ip地址-->
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+
+<script type="text/javascript">
+
+function login(){
+	var un = document.getElementById("username").value;
+	var pw = $("#password").val();
+	$.ajax({
+		url:'/login',
+		type:'get',
+		dataType:'json',
+		data:{
+			username:un,
+			password:pw,
+            ip:returnCitySN["cip"]
+		},
+		success:function (data){
+			console.log(data);
+			if (data.code == 0) {
+				alert(data.msg);
+			}else{
+				alert(data.msg);
+				//跳转页面
+				window.location.href="./index/index.html";
+
+                $.cookie("user",data.token);
+
+			}
+		
+		}
+	})
+}
+</script>
+</body>
+</html>

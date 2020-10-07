@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xrd.znsbgl.mapper.LoginMapper">
+
+    <!--参数为Admin 返回结果为Admin 根据账号密码查询数据库是否有数据 返回Admin、null-->
+    <select id="login" parameterType="Admin" resultType="Admin">
+        select * from admin where username=#{username} and password=#{password};
+    </select>
+
+</mapper>
